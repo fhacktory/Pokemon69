@@ -1,7 +1,7 @@
-import numpy as np
-import scipy as sp
-import matplotlib as plt
-import scipy as stats
+# import numpy as np
+# import scipy as sp
+# import matplotlib as plt
+# import scipy as stats
 
 
 def rankme(raw):

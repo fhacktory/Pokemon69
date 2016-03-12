@@ -1,9 +1,12 @@
 from flask import Flask, jsonify, request
+from flask.ext.cors import CORS
+
 import ranking
 import api
 
 def run():
-    app = Flask(__name__)
+    app = Flask("Podium")
+    CORS(app)
 
     @app.route("/search")
     def search():
