@@ -6,5 +6,3 @@ J'utilise le fichier Json issu des Api des sites afin de scorer et classer les p
 
 # Installation
 pip install Flask
-
-
