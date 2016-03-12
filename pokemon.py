@@ -1,3 +1,8 @@
+import numpy as np
+import scipy as sp
+import matplotlib as plt
+import scipy.stat as stats
+
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
@@ -8,6 +13,9 @@ def search():
         'req': {
             'city': request.args.get('city'),
             'job': request.args.get('job')
+        },
+        'res' : {
+
         }
     })
 
