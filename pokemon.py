@@ -8,8 +8,20 @@ def search():
         'req': {
             'city': request.args.get('city'),
             'job': request.args.get('job')
+        },
+        'res' : {
+        	
         }
     })
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=8080)
+
+
+import numpy as np 
+import scipy as sp 
+import matplotlib as plt
+import scipy.stat as stats
+
+
+
