@@ -1,7 +1,7 @@
 import numpy as np
 import scipy as sp
 import matplotlib as plt
-import scipy.stat as stats
+import scipy as stats
 
 from flask import Flask, jsonify, request
 
