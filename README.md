@@ -5,6 +5,12 @@ A partir d'une ville et d'un métier, on récupere les données des API de Faceb
 
 Lecon : la doc de facebook est horrible, vive yelp qui honore la paypal mafia, python toujours aussi plaisant, on aurait besoin de machine learning par rapport à toutes les variables dispo, peu de data. On s'est fait plaisir :)
 
+# TODO NEXT :)
+- Get list of Yelp and Facebook category
+- Match catgory between Yelp and Facebook
+- Add machine learning for all parameters
+- Add D3.js for front
+
 # Installation
 ## For back
 ```
@@ -23,5 +29,11 @@ URL : /search?city=Lyon&job=Artiste
 
 ## For front
 Change URL of back
-`npm install`
-`npm start -s`
+
+```
+brew install nvm # or something else on Linux
+nvm install 5.0.0
+nvm use 5.0.0
+npm install
+npm start -s
+```
