@@ -21,7 +21,6 @@ import '../styles/components/state.scss';
 import axios from 'axios';
 
 
-import Iframe from 'react-iframe';
 
 
 
@@ -56,14 +55,14 @@ class State extends React . Component {
   handleUpdateInput(t) {
     console.log('t', t);
     this.setState({
-      dataSource: ['coiffeur', 'plombier', 'restaurateur', 'moche', 'miche', 'mouche', 'mache']
+      dataSource: ['coiffeur', 'pub', 'plombier', 'restaurateur', 'moche', 'miche', 'mouche', 'mache']
     });
     this.setState({metier:t});
   }
 
   handleUpdateInputCp(t) {
     this.setState({
-      dataSourceCp: ['lyon', 'Marseille', 'Caen', 'Rouen', 'organecity', 'Villeurbanne', 'st-anus', 'nantes','paris']
+      dataSourceCp: ['lyon', 'Marseille', 'Caen', 'Rouen', 'organecity', 'Villeurbanne', 'nantes','paris']
     });
     this.setState({ville:t});
   }
@@ -72,7 +71,7 @@ class State extends React . Component {
     this.setState({
       loading: true
     });
-    axios.get(serverUrl + 'search?'+this.state.metier+'city=&job='+this.state.ville)
+    axios.get(serverUrl + 'search?city='+this.state.ville+'&job='+this.state.metier)
       .then((response) => {
         console.log('prout');
         console.log(response);
@@ -84,7 +83,7 @@ class State extends React . Component {
 
       })
       .catch((response) => {
-        console.log('prout');
+        console.log('prout 2');
         console.log(response);
         this.setState({
           loading: false
@@ -101,46 +100,40 @@ class State extends React . Component {
   render() {
     var rendered ;
     var response = [];
-
+    console.log('this.state.liste' + this.state.liste);
     if(this.state.liste){
-      this.state.liste.map((item, index, array)=>{
-        console.log(item);
-        response.push(<div key={index}> {item.name}</div>);
-      });
+        console.log('this.state.liste 2');
+        console.log(this.state.liste)
+        console.log('this.state.liste 2 end');
+        this.state.liste.map((item, index, array)=>{
+            console.log(item);
+            response.push(
+                <div key={index}> {item.name} - FB:{item.facebook.likes} - YELP:{item.yelp.rating}</div>);
+        });
     }
 
 
     if (this.state.loading) {
-      rendered = (<div>
-    <CircularProgress /></div>);
+        rendered = (<div><CircularProgress /></div>);
     } else {
-      rendered = (<div><div>Hello dude !! </div>
-      <AutoComplete
-      hintText="Vous recherchez ? "
-      dataSource={this.state.dataSource}
-      onUpdateInput={this.handleUpdateInput}
-      />
-       <AutoComplete
-      hintText="Votre code postal "
-      dataSource={this.state.dataSourceCp}
-      onUpdateInput={this.handleUpdateInputCp}
-      />
-       <RaisedButton label="Primary" primary={true} onClick={this._onClick} />
-       <br/>
-       {response}
-
-       </div>);
+        rendered = (
+            <div><div>Hello dude !! </div>
+            <AutoComplete
+                hintText="Vous recherchez ? "
+                dataSource={this.state.dataSource}
+                onUpdateInput={this.handleUpdateInput}/>
+            <AutoComplete
+                hintText="Votre code postal "
+                dataSource={this.state.dataSourceCp}
+                onUpdateInput={this.handleUpdateInputCp}/>
+            <RaisedButton label="Podium" primary={true} onClick={this._onClick} />
+            <br/>
+            {response}
+            </div>);
     }
 
-
-    return (
-      <div>{rendered}</div>
-      );
-
+    return (<div>{rendered}</div>);
   }
-
 }
 
 export default State;
-
-
