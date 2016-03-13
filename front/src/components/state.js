@@ -54,9 +54,7 @@ class State extends React . Component {
 
   handleUpdateInput(t) {
     console.log('t', t);
-    this.setState({
-      dataSource: ['coiffeur', 'pub', 'plombier', 'restaurateur', 'moche', 'miche', 'mouche', 'mache']
-    });
+
     this.setState({metier:t});
   }
 
@@ -102,9 +100,7 @@ class State extends React . Component {
     var response = [];
     console.log('this.state.liste' + this.state.liste);
     if(this.state.liste){
-        console.log('this.state.liste 2');
         console.log(this.state.liste)
-        console.log('this.state.liste 2 end');
         this.state.liste.map((item, index, array)=>{
             console.log(item);
             response.push(
