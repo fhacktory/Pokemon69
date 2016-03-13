@@ -8,3 +8,4 @@ J'utilise le fichier Json issu des Api des sites afin de scorer et classer les p
 pip install Flask
 pip install yelp
 pip install flask-cors
+pip install facebook-sdk
